@@ -21,7 +21,7 @@ const MedFeed = () => {
         },
     ]
     return (
-        <div className="grid grid-cols-2 gap-[50px] text-3xl">
+        <div className="grid grid-cols-2 gap-[40px] text-3xl">
             {links.map(link => (
                 <Link href={link.navLink} className="w-[600px] h-72 rounded-[10px] relative overflow-hidden group duration-100 ease-in">
                     {/* Background image with reduced brightness */}

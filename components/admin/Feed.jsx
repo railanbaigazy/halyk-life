@@ -30,7 +30,7 @@ const AdminFeed = () => {
         )
     }
     return (
-        <div className="ml-[40px] mt-[40px]">
+        <div>
             <div className="flex">
                 <div>
                     <div className="flex flex-col">
@@ -41,7 +41,7 @@ const AdminFeed = () => {
                                 value={searchText}
                                 onChange={handleSearchChange}
                                 required
-                                className="w-[875px] py-[8px] pl-[26px] rounded-[20px]"
+                                className="w-[700px] py-[8px] pl-[26px] rounded-[20px]"
                             />
                             <button className="bg-[#01B071] text-white py-[5px] px-[22px] rounded-[25px] ml-[11px]">ИСКАТЬ</button>
                         </form>

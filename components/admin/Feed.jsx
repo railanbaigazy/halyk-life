@@ -41,7 +41,7 @@ const AdminFeed = () => {
                                 value={searchText}
                                 onChange={handleSearchChange}
                                 required
-                                className="w-[700px] py-[8px] pl-[26px] rounded-[20px]"
+                                className="xl:w-[600px] py-[8px] pl-[26px] rounded-[20px] lg:w-[400px]"
                             />
                             <button className="bg-[#01B071] text-white py-[5px] px-[22px] rounded-[25px] ml-[11px]">ИСКАТЬ</button>
                         </form>

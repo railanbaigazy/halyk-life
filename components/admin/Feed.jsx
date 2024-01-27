@@ -1,11 +1,12 @@
-import { useState } from "@node_modules/react";
+'use client'
+
+import { useState } from "react";
 import ClientCardList from "@components/admin/ClientCardList";
 
-const AdminFeed = () => {
-    const allClients = []
+const AdminFeed = (allClients) => {
     const [clients, setClients] = useState(allClients)
 
-    const [searchText, setSearchText] = useState()
+    const [searchText, setSearchText] = useState('')
     const [searchedClients, setSearchedClients] = useState([])
     const [searchTimeout, setSearchTimeout] = useState(null)
 
@@ -27,7 +28,7 @@ const AdminFeed = () => {
         )
     }
     return (
-        <div>
+        <div className="flex flex-row">
             <div className="flex flex-col w-2/3">
                 <form name="search" className="relative w-full flex-center">
                     <input

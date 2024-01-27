@@ -1,12 +1,11 @@
-import MedFeed from "@components/med/Feed";
 import MainWrapper from "@components/MainWrapper";
 
-const MedPage = () => {
+const MedUploadData = () => {
     return (
         <MainWrapper>
-            <MedFeed/>
+            MedUploadData
         </MainWrapper>
     );
 };
 
-export default MedPage;
+export default MedUploadData;

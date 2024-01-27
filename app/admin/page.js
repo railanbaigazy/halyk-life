@@ -1,13 +1,12 @@
-'use client'
-
-import { useState } from "react";
 import AdminFeed from "@components/admin/Feed";
+import MainWrapper from "@components/MainWrapper";
 
 const AdminPage = () => {
+    const allClients = []
     return (
-        <div className="min-h-screen">
-            <AdminFeed className="flex flex-row p-[40px]" />
-        </div>
+        <MainWrapper>
+            <AdminFeed allClients={ allClients }/>
+        </MainWrapper>
     );
 };
 

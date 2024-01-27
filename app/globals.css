@@ -33,5 +33,13 @@ body {
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-[10px] bg-[#EAEDF2] p-1.5 mt-2.5 text-sm text-gray-500 outline-0 h-[35px] resize-none;
+}
+
+.std_button {
+  @apply rounded-[10px] bg-[#EAEDF2] h-[80px] flex items-center justify-center text-[#8E8E8E];
+}
+
+.green_button {
+  @apply bg-[#01B071] font-bold text-white;
 }

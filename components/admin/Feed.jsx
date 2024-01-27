@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import ClientCardList from "@components/admin/ClientCardList";
+import RightBar from "./RightBar/RightBar";
 
-const AdminFeed = (allClients) => {
+const AdminFeed = () => {
+    const allClients = [];
     const [clients, setClients] = useState(allClients)
 
-    const [searchText, setSearchText] = useState('')
+    const [searchText, setSearchText] = useState()
     const [searchedClients, setSearchedClients] = useState([])
     const [searchTimeout, setSearchTimeout] = useState(null)
 
@@ -28,26 +30,34 @@ const AdminFeed = (allClients) => {
         )
     }
     return (
-        <div className="flex flex-row">
-            <div className="flex flex-col w-2/3">
-                <form name="search" className="relative w-full flex-center">
-                    <input
-                        type="text"
-                        placeholder="Search for a tag or username"
-                        value={searchText}
-                        onChange={handleSearchChange}
-                        required
-                        className="search_input peer"
-                    />
-                </form>
+        <div className="ml-[40px] mt-[40px]">
+            <div className="flex">
+                <div>
+                    <div className="flex flex-col">
+                        <form name="search" className="relative w-full flex-center">
+                            <input
+                                type="text"
+                                placeholder="Найти пациента"
+                                value={searchText}
+                                onChange={handleSearchChange}
+                                required
+                                className="w-[875px] py-[8px] pl-[26px] rounded-[20px]"
+                            />
+                            <button className="bg-[#01B071] text-white py-[5px] px-[22px] rounded-[25px] ml-[11px]">ИСКАТЬ</button>
+                        </form>
+                    </div>
+                    <div className="flex flex-col">
+                        {/*Clients output*/}
+                        {searchText ? (
+                            <ClientCardList data={searchedClients} />
+                        ) : (
+                            <ClientCardList data={searchedClients} />
+                        )}
+                    </div>
+                </div>
+            <div>
+                <RightBar />
             </div>
-            <div className="flex flex-col">
-                {/*Clients output*/}
-                {searchText ? (
-                    <ClientCardList data={searchedClients} />
-                ) : (
-                    <ClientCardList data={searchedClients} />
-                )}
             </div>
         </div>
     );

@@ -12,14 +12,14 @@ const ClientCardList = () => {
                                     justify-center 
                                     text-[18px] 
                                     font-bold 
-                                    ml-[100px]">
+                                    xl:ml-[50px] lg:ml-[15px]">
                     КН</div>
-                    <div className="ml-[65px]">031125501188</div>
-                    <div className="ml-[85px]">Кайрат Нуртас</div>
+                    <div className="xl:ml-[65px] lg:ml-[50px] lg:text-[12px]">031125501188</div>
+                    <div className="xl:ml-[85px] lg:ml-[70px] lg:text-[12px]">Кайрат Нуртас</div>
 
                 </div>
                 <div className="flex relative">
-                    <div className="mr-[160px]">Мужчина</div>
+                    <div className="xl:mr-[110px] lg:mr-[85px] lg:text-[12px]">Мужчина</div>
                 </div>
             </div>
         </>

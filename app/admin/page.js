@@ -1,18 +1,12 @@
 'use client'
 
 import { useState } from "react";
+import AdminFeed from "@components/admin/Feed";
 
 const AdminPage = () => {
-
-    const [searchText, setSearchText] = useState()
-
-    const handleSearchChange = () => {
-
-    }
-
     return (
-        <div className="flex min-h-screen flex-row p-[40px]">
-
+        <div className="min-h-screen">
+            <AdminFeed className="flex flex-row p-[40px]" />
         </div>
     );
 };

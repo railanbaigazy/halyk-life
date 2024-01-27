@@ -5,7 +5,6 @@ const MedUploadData = () => {
         <MainWrapper className="flex gap-[20px]">
             <form
                 name="upload-form"
-
             >
 
             </form>

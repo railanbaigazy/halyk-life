@@ -10,7 +10,7 @@ const AdminPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("http://164.92.228.128/api/v1/customers/");
+            const response = await fetch("http://164.92.228.128:4444/api/v1/customers/");
             const data = await response.json();
             setData(data);
         };

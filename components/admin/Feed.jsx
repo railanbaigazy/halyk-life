@@ -18,7 +18,7 @@ const AdminFeed = (data) => {
     const filterPrompts = (filterText) => {
         const regex = new RegExp(filterText, "i")
         return clients.filter(p => (
-            regex.test(p.clients.first_name) || regex.test(p.clients.last_name) || regex.test(p.clients.iin)
+            regex.test(p.clients.clients.first_name) || regex.test(p.clients.clients.last_name) || regex.test(p.clients.clients.iin)
         ));
     }
 

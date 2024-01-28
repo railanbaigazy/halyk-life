@@ -1,6 +1,20 @@
+'use client';
 import MainWrapper from "@components/MainWrapper";
+import { useEffect, useState } from "react";
 
-const ClientPage = () => {
+const ClientPage = ({ params }) => {
+    const [userInfo, setUserInfo] = useState([]);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const response = await fetch(`http://164.92.228.128/api/v1/customer/${params?.id}`);
+            const data = await response.json();
+            setUserInfo(data);
+        };
+
+        if (params?.id) fetchPosts();
+    }, [params?.id]);
+
     return (
         <div>
             <MainWrapper>
@@ -18,15 +32,15 @@ const ClientPage = () => {
                                 font-bold 
                                 ">
                             КН</div>
-                            <h1 className="text-[48px] font-bold mt-[24px]">Кайрат Нуртас</h1>
+                            <h1 className="text-[48px] font-bold mt-[24px]">{userInfo.first_name + ' ' + userInfo.last_name}</h1>
                             <div className="text-[30px] font-bold mb-[45px] mt-[36px]">Детали клиента</div>
                             <div className="flex mb-[16px] gap-[140px]">
                                 <div className="font-light">ИИН</div>
-                                <div className="text-[#01B071]">123456712345</div>
+                                <div className="text-[#01B071]">{userInfo.iin}</div>
                             </div>
                             <div className="flex gap-[50px]">
                                 <div className="font-light">Дата рождения</div>
-                                <div className="text-[#01B071]">25/11/2003</div>
+                                <div className="text-[#01B071]">{ userInfo.birth_date }</div>
                             </div>
                         </div>
                         <div>

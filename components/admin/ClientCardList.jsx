@@ -1,6 +1,5 @@
 import ClientCard from './ClientCard/ClientCard';
-
-const ClientCardList = () => {
+const ClientCardList = ({clients}) => {
     return (
         <div className='bg-white rounded-t-[10px] mt-[17px] min-h-screen xl:w-[725px] lg:w-[525px]'>
             <h1 className='text-[20px] pt-[36px] pl-[27px] font-500 mb-[21px]'>Список Клиентов</h1>
@@ -11,8 +10,11 @@ const ClientCardList = () => {
                     <li>ПОЛ</li>
                 </ul>
             </div>
-            <ClientCard />
-            <ClientCard />
+            <div>
+                {clients.map((client) => (
+                    <ClientCard client={client} />
+                ))}
+            </div>
         </div>
     );
 };

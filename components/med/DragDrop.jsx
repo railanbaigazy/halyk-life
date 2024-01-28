@@ -31,7 +31,7 @@ const DragAndDropFileUpload = () => {
 
     return (
         <div
-            className={`p-4 border-dashed border-2 h-[300px] mb-1.5 ${
+            className={`flex-1 p-4 border-dashed border-2 h-[80px] mb-1.5 ${
                 dragging ? 'border-blue-500' : 'border-gray-300'
             }`}
             onDragEnter={handleDragEnter}

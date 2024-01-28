@@ -1,16 +1,24 @@
 'use client'
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+
 
 const MainHeader = () => {
-    const router = useRouter()
+    const pathname = usePathname()
 
     const pageTitle = 'Главная'
     const updateTitle = () => {
-        switch (router.pathname) {
-            case '/':
-                return 'Тест'
+        if (pathname.includes('/admin/client')) {
+            return 'Данные клиента'
+        }
+        switch (pathname) {
+            case '/med':
+                return 'Главная страница медицинского сотрудника'
+            case '/med/upload-data':
+                return 'Внесение данных клиента'
+            case '/admin':
+                return 'Главная страница сотрудника Halyk Life'
             default:
                 return pageTitle
         }

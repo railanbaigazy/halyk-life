@@ -1,22 +1,25 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ClientCardList from "@components/admin/ClientCardList";
 import RightBar from "./RightBar/RightBar";
 
-const AdminFeed = () => {
-    const allClients = [];
-    const [clients, setClients] = useState(allClients)
-
+const AdminFeed = (data) => {
+    const [clients, setClients] = useState(data.data)
+    useEffect(() => {
+        if (data) {
+            setClients(data.data)
+        }
+    }, [data]);
     const [searchText, setSearchText] = useState()
     const [searchedClients, setSearchedClients] = useState([])
     const [searchTimeout, setSearchTimeout] = useState(null)
 
     const filterPrompts = (filterText) => {
         const regex = new RegExp(filterText, "i")
-        // return clients.filter(p => (
-        //     regex.test(p.name) || regex.test(p.surname) || regex.test(p.pin)
-        // ));
+        return clients.filter(p => (
+            regex.test(p.clients.first_name) || regex.test(p.clients.last_name) || regex.test(p.clients.iin)
+        ));
     }
 
     const handleSearchChange = (e) => {
@@ -49,9 +52,9 @@ const AdminFeed = () => {
                     <div className="flex flex-col">
                         {/*Clients output*/}
                         {searchText ? (
-                            <ClientCardList data={searchedClients} />
+                            <ClientCardList clients={searchedClients} />
                         ) : (
-                            <ClientCardList data={searchedClients} />
+                            <ClientCardList clients={clients} />
                         )}
                     </div>
                 </div>

@@ -1,6 +1,43 @@
+'use client'
+
 import DragAndDropFileUpload from "@components/med/DragDrop";
+import { useEffect, useState } from "react";
 
 const UploadForm = ({ submitting }) => {
+    const [pinField, setPinField] = useState('');
+
+    const [searchedPosts, setSearchedPosts] = useState([]);
+    const [searchTimeout, setSearchTimeout] = useState(null);
+
+    const filterPrompts = (filterText) => {
+        const regex = new RegExp(filterText, "i");
+        return posts.filter(p => (
+            regex.test(p.creator.username)
+        ));
+    };
+
+    const handleSearchChange = (e) => {
+        clearTimeout(searchTimeout);
+        setSearchText(e.target.value);
+        setSearchTimeout(
+            setTimeout(() => {
+                const searchResult = filterPrompts(e.target.value);
+                setSearchedPosts(searchResult);
+            }, 500)
+        );
+
+    };
+
+    useEffect(() => {
+
+    }, [pinField]);
+
+    const handlePinChange = (e) => {
+        const changedPinField = e.target.value
+        if (pinField.length < 13 && changedPinField.length < 13) {
+            setPinField(changedPinField)
+        }
+    }
     return (
         <form
             name="upload-form"
@@ -9,7 +46,12 @@ const UploadForm = ({ submitting }) => {
             <div className="flex flex-col flex-1 bg-white h-[480px] p-[40px] rounded-[10px]">
                 <label className="flex-1">
                     <span>ИИН</span>
-                    <textarea className="form_input" required />
+                    <textarea
+                        className="form_input"
+                        required
+                        value={pinField}
+                        onChange={handlePinChange}
+                    />
                 </label>
                 <label className="flex-1">
                     <span>ФИО</span>
@@ -31,10 +73,11 @@ const UploadForm = ({ submitting }) => {
             <div className="flex flex-col flex-1 bg-white rounded-[10px] p-[40px]">
                 <span className="mb-1.5">Прикрепление данных пациента</span>
                 <DragAndDropFileUpload />
+                <p className="text-[#8E8E8E] text-center text-xs mt-4">Нажимая кнопку отправить, вы подтверждаете, что вся информация о пациенте верна и все необходимые данные были прикреплены</p>
                 <button
                     type="submit"
                     disabled={submitting}
-                    className="std_button green_button"
+                    className="std_button green_button w-1/2 mx-auto mt-4"
                 >
                     {submitting ? "Отправляется..." : "Отправить"}
                 </button>

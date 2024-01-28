@@ -4,16 +4,29 @@ import DragAndDropFileUpload from "@components/med/DragDrop";
 import { useEffect, useState } from "react";
 
 const UploadForm = ({ submitting }) => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("http://164.92.228.128:4444/api/v1/customers/");
+            const data = await response.json();
+            setData(data);
+        };
+
+        fetchData();
+        console.log(data)
+
+    }, []);
     const [pinField, setPinField] = useState('');
 
     const [searchedPosts, setSearchedPosts] = useState([]);
     const [searchTimeout, setSearchTimeout] = useState(null);
 
     const filterPrompts = (filterText) => {
-        const regex = new RegExp(filterText, "i");
-        return posts.filter(p => (
-            regex.test(p.creator.username)
-        ));
+        // const regex = new RegExp(filterText, "i");
+        // return posts.filter(p => (
+        //     regex.test(p.)
+        // ));
     };
 
     const handleSearchChange = (e) => {

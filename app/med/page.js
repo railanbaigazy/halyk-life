@@ -5,7 +5,7 @@ import { useEffect, useState } from "@node_modules/react";
 const MedPage = () => {
     return (
         <MainWrapper>
-            <MedFeed/>
+            <MedFeed />
         </MainWrapper>
     );
 };
